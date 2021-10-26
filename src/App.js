@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import React, { useState } from "react";
+import Header from "./components/Header";
+import Balance from "./components/Balance";
+import IncomeExpenses from "./components/IncomeExpenses";
+import TransactionList from "./components/TransactionList";
+import AddTransaction from "./components/AddTransaction";
 
 function App() {
+  const [inputText, setInputText] = useState("");
+  const [inputMoney, setInputMoney] = useState(0);
+  const [expense, setExpense] = useState([]);
+  const [income,setIncome] = useState(0);
+  const [out,setOut] = useState(0);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <div className="container">
+        <Balance income={income} out={out} />
+        <IncomeExpenses income={income} out={out} />
+        <TransactionList expense={expense} />
+        <AddTransaction
+          expense={expense}
+          setExpense={setExpense}
+          inputText={inputText}
+          setInputText={setInputText}
+          inputMoney={inputMoney}
+          setInputMoney={setInputMoney}
+          income={income}
+          setIncome={setIncome}
+          out={out}
+          setOut={setOut}
+        />
+      </div>
     </div>
   );
 }
