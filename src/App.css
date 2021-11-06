@@ -99,9 +99,12 @@ input[type="number"] {
   border: 0;
   display: block;
   font-size: 16px;
-  margin: 10px 0 30px;
+  margin: 40px 0 30px;
   padding: 10px;
   width: 100%;
+  border-radius: 68px;
+  background: #1ea79b;
+  box-shadow: 13px -13px 25px #a2ece6, -13px 13px 25px #a2ece6;
 }
 
 .btn:focus,
